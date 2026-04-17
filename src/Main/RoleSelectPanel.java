@@ -26,7 +26,7 @@ public class RoleSelectPanel extends JPanel {
         gbc.gridx = 0;
         
         // Row 0: Title
-        JLabel title = new JLabel("Select Your Role");
+        JLabel title = new JLabel("Role Select");
         title.setFont(new Font("Times New Roman", Font.BOLD, 24));
         gbc.gridy = 0;
         gbc.gridwidth = 1;

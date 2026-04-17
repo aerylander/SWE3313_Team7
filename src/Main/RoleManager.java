@@ -36,7 +36,7 @@ public class RoleManager {
             if (activeUserCount.get(ROLE_HOST) >= maxHostUsers) {
                 return false;
             }
-            activeUserCount.put(ROLE_HOST, activeUserCount.get(ROLE_HOST) + 1);
+            activeUserCount.put(ROLE_HOST, activeUserCount.get(ROLE_HOST));
             return true;
         } else if (role.equals(ROLE_KITCHEN)) {
             if (activeUserCount.get(ROLE_KITCHEN) >= maxKitchenUsers) {
@@ -46,7 +46,9 @@ public class RoleManager {
             return true;
         } else if (role.equals(ROLE_SERVER)) {
             // Server role has no limit
-            activeUserCount.put(ROLE_SERVER, activeUserCount.get(ROLE_SERVER) + 1);
+            int updateCount = getActiveUserCount(ROLE_SERVER);
+            updateCount++;
+            activeUserCount.put(ROLE_SERVER, updateCount);
             return true;
         }
         return false;
@@ -80,7 +82,7 @@ public class RoleManager {
      * Gets the current count of active users in a role.
      */
     public int getActiveUserCount(String role) {
-        return activeUserCount.getOrDefault(role, 0);
+        return activeUserCount.get(role);
     }
     
     /**
@@ -98,7 +100,7 @@ public class RoleManager {
     public void setMaxHostUsers(int max) {
         this.maxHostUsers = max;
     }
-    
+
     public void setMaxKitchenUsers(int max) {
         this.maxKitchenUsers = max;
     }

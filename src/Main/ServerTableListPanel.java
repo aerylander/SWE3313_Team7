@@ -3,6 +3,8 @@ package Main;
 import javax.swing.*;
 import java.awt.*;
 
+import static Main.RoleManager.ROLE_SERVER;
+
 /**
  * The Server Table List screen shows all available tables for a server.
  * Servers can select a table to create a new ticket or view active tickets.
@@ -34,7 +36,7 @@ public class ServerTableListPanel extends JPanel {
         add(title, gbc);
         
         // Row 1: Instructions
-        JLabel instructions = new JLabel("Select a table to start a new ticket or view active tickets");
+        JLabel instructions = new JLabel("Select a table to start a new ticket or view active tickets. The number of servers is: " + mainApp.getNumberOfRole(ROLE_SERVER));
         instructions.setFont(new Font("Times New Roman", Font.PLAIN, 12));
         gbc.gridy = 1;
         add(instructions, gbc);
@@ -124,7 +126,7 @@ public class ServerTableListPanel extends JPanel {
      */
     private void logout() {
         // Release the Server role
-        mainApp.getRoleManager().removeRole(RoleManager.ROLE_SERVER);
+        mainApp.getRoleManager().removeRole(ROLE_SERVER);
         // Return to Employee Login screen
         mainApp.showScreen("Employee");
     }

@@ -1,11 +1,14 @@
 package Main;
 
+/* Logic for the PIN-based employee login. This object stores accepted PINs as an array of integers
+and uses its validatePin method to return whether a PIN is accepted.
+ */
+
 public class login {
-    private int[] pin;
+    final private int[] pin;
 
     public login(){
-        final int[] pin = {1234, 5678};
-        this.pin = pin;
+        this.pin = new int[] {1234, 4321};
     }
     public boolean validatePin(int inputPin){
         for (int p : pin) {
@@ -16,6 +19,3 @@ public class login {
         return false;
     }
 }
-// test comment
-
-//A.J.
