@@ -9,6 +9,8 @@ public class App extends JFrame {
     private JPanel mainContainer;
     private RoleManager roleManager;
     private TableManager tableManager;
+    private MenuManager menuManager;
+    private TicketManager ticketManager;
     private ServerTableListPanel serverTableListPanel;
     private ServerTicketCreationPanel serverTicketCreationPanel;
     private int selectedTableNumber;
@@ -24,8 +26,15 @@ public class App extends JFrame {
         // These can be configured by administrators
         roleManager = new RoleManager(2, 3); // 2 max hosts, 3 max kitchen staff
         
+        // Initialize the TicketManager for managing active tickets
+        ticketManager = new TicketManager();
+        
         // Initialize the TableManager with the restaurant's tables
-        tableManager = new TableManager(10); // 10 tables in the restaurant
+        tableManager = new TableManager(10, ticketManager); // 10 tables in the restaurant
+        
+        // Initialize the MenuManager with menu items
+        menuManager = new MenuManager();
+        
         selectedTableNumber = -1;
 
         cardLayout = new CardLayout();
@@ -39,7 +48,7 @@ public class App extends JFrame {
         
         // Server view screens
         serverTableListPanel = new ServerTableListPanel(this, tableManager);
-        serverTicketCreationPanel = new ServerTicketCreationPanel(this);
+        serverTicketCreationPanel = new ServerTicketCreationPanel(this, menuManager, ticketManager);
         mainContainer.add(serverTableListPanel, "ServerTableList");
         mainContainer.add(serverTicketCreationPanel, "ServerTicketCreation");
         mainContainer.add(new ServerActiveTicketsPanel(this), "ServerActiveTickets");
@@ -63,10 +72,20 @@ public class App extends JFrame {
         return tableManager;
     }
     
+    // Getter for TicketManager (if needed by other panels)
+    public TicketManager getTicketManager() {
+        return ticketManager;
+    }
+    
     // Sets the selected table for ticket creation
     public void selectTable(int tableNumber) {
         this.selectedTableNumber = tableNumber;
         serverTicketCreationPanel.setSelectedTable(tableNumber);
+    }
+    
+    // Refreshes the server table list (called after ticket creation)
+    public void refreshServerTableList() {
+        serverTableListPanel.refreshTableList();
     }
 
     public static void main(String[] args) {

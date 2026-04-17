@@ -8,8 +8,10 @@ import java.util.List;
  */
 public class TableManager {
     private List<Table> tables;
+    private TicketManager ticketManager;
     
-    public TableManager(int numberOfTables) {
+    public TableManager(int numberOfTables, TicketManager ticketManager) {
+        this.ticketManager = ticketManager;
         this.tables = new ArrayList<>();
         for (int i = 1; i <= numberOfTables; i++) {
             tables.add(new Table(i));
@@ -20,6 +22,10 @@ public class TableManager {
      * Gets all tables.
      */
     public List<Table> getAllTables() {
+        // Update table statuses based on active tickets
+        for (Table table : tables) {
+            table.setHasActiveTicket(ticketManager.tableHasActiveTickets(table.getTableNumber()));
+        }
         return new ArrayList<>(tables);
     }
     
@@ -29,6 +35,8 @@ public class TableManager {
     public Table getTable(int tableNumber) {
         for (Table table : tables) {
             if (table.getTableNumber() == tableNumber) {
+                // Update status before returning
+                table.setHasActiveTicket(ticketManager.tableHasActiveTickets(tableNumber));
                 return table;
             }
         }
@@ -49,8 +57,7 @@ public class TableManager {
      * Checks if a table has an active ticket.
      */
     public boolean tableHasActiveTicket(int tableNumber) {
-        Table table = getTable(tableNumber);
-        return table != null && table.hasActiveTicket();
+        return ticketManager.tableHasActiveTickets(tableNumber);
     }
     
     /**
@@ -60,4 +67,3 @@ public class TableManager {
         return tables.size();
     }
 }
-
