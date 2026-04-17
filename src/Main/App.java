@@ -30,7 +30,7 @@ public class App extends JFrame {
         menuManager = new MenuManager();
 
         // Initialize the TableManager with the restaurant's tables
-        tableManager = new TableManager(10, ticketManager); // 10 tables in the restaurant
+        tableManager = new TableManager(30, ticketManager); // 10 tables in the restaurant
         selectedTableNumber = -1;
 
         cardLayout = new CardLayout();
@@ -51,6 +51,16 @@ public class App extends JFrame {
 
         add(mainContainer);
         setVisible(true);
+    }
+
+    // Method to pass RoleManager's activeUserCount values to other modules.
+    public int getNumberOfRole(String role){
+        return roleManager.getActiveUserCount(role);
+    }
+
+    // Method to pass ticketManager to other modules.
+    public TicketManager getTicketManager(){
+        return ticketManager;
     }
 
     // Method used by the buttons in other panels to request a screen change
