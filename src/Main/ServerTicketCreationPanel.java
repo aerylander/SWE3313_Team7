@@ -240,7 +240,7 @@ public class ServerTicketCreationPanel extends JPanel {
             // Add to active tickets
             ticketManager.addTicket(currentTicket);
             
-            // Refresh table list to show active status
+            // ! The method called here does nothing right now. Refresh table list to show active status.
             mainApp.refreshServerTableList();
             
             JOptionPane.showMessageDialog(this, 

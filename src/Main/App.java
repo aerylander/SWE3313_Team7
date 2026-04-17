@@ -12,6 +12,8 @@ public class App extends JFrame {
     private ServerTableListPanel serverTableListPanel;
     private ServerTicketCreationPanel serverTicketCreationPanel;
     private int selectedTableNumber;
+    private TicketManager ticketManager;
+    private MenuManager menuManager;
 
     public App() {
         // Basic window setup
@@ -23,9 +25,12 @@ public class App extends JFrame {
         // Initialize the RoleManager with max limits for Host and Kitchen
         // These can be configured by administrators
         roleManager = new RoleManager(2, 3); // 2 max hosts, 3 max kitchen staff
-        
+
+        ticketManager = new TicketManager();
+        menuManager = new MenuManager();
+
         // Initialize the TableManager with the restaurant's tables
-        tableManager = new TableManager(30); // 30 tables in the restaurant
+        tableManager = new TableManager(10, ticketManager); // 10 tables in the restaurant
         selectedTableNumber = -1;
 
         cardLayout = new CardLayout();
@@ -39,7 +44,7 @@ public class App extends JFrame {
         
         // Server view screens
         serverTableListPanel = new ServerTableListPanel(this, tableManager);
-        serverTicketCreationPanel = new ServerTicketCreationPanel(this);
+        serverTicketCreationPanel = new ServerTicketCreationPanel(this, menuManager, ticketManager);
         mainContainer.add(serverTableListPanel, "ServerTableList");
         mainContainer.add(serverTicketCreationPanel, "ServerTicketCreation");
         mainContainer.add(new ServerActiveTicketsPanel(this), "ServerActiveTickets");
@@ -47,10 +52,7 @@ public class App extends JFrame {
         add(mainContainer);
         setVisible(true);
     }
-    // Getter for active user counts from role manager object used in this instance.
-    public int getNumberOfRole(String role){
-        return roleManager.getActiveUserCount(role);
-    }
+
     // Method used by the buttons in other panels to request a screen change
     public void showScreen(String screenName) {
         cardLayout.show(mainContainer, screenName);
@@ -75,5 +77,8 @@ public class App extends JFrame {
     public static void main(String[] args) {
         // Run the GUI on the Event Dispatch Thread for thread safety
         SwingUtilities.invokeLater(() -> new App());
+    }
+    public void refreshServerTableList(){
+        //This method has no content. It should call TableManager and refresh the statuses for the Server Table List.
     }
 }
