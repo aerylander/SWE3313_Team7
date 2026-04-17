@@ -7,6 +7,11 @@ public class App extends JFrame {
     // CardLayout is the "engine" that swaps the views
     private CardLayout cardLayout;
     private JPanel mainContainer;
+    private RoleManager roleManager;
+    private TableManager tableManager;
+    private ServerTableListPanel serverTableListPanel;
+    private ServerTicketCreationPanel serverTicketCreationPanel;
+    private int selectedTableNumber;
 
     public App() {
         // Basic window setup
@@ -15,13 +20,29 @@ public class App extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Centers the window
 
+        // Initialize the RoleManager with max limits for Host and Kitchen
+        // These can be configured by administrators
+        roleManager = new RoleManager(2, 3); // 2 max hosts, 3 max kitchen staff
+        
+        // Initialize the TableManager with the restaurant's tables
+        tableManager = new TableManager(10); // 10 tables in the restaurant
+        selectedTableNumber = -1;
+
         cardLayout = new CardLayout();
         mainContainer = new JPanel(cardLayout);
 
         // Initialize and add the panels to the card stack
-        // These names ("Employee", "Admin") are used to switch between them
+        // These names are used to switch between them
         mainContainer.add(new EmployeeLoginPanel(this), "Employee");
         mainContainer.add(new AdminLoginPanel(this), "Admin");
+        mainContainer.add(new RoleSelectPanel(this, roleManager), "RoleSelect");
+        
+        // Server view screens
+        serverTableListPanel = new ServerTableListPanel(this, tableManager);
+        serverTicketCreationPanel = new ServerTicketCreationPanel(this);
+        mainContainer.add(serverTableListPanel, "ServerTableList");
+        mainContainer.add(serverTicketCreationPanel, "ServerTicketCreation");
+        mainContainer.add(new ServerActiveTicketsPanel(this), "ServerActiveTickets");
 
         add(mainContainer);
         setVisible(true);
@@ -30,6 +51,22 @@ public class App extends JFrame {
     // Method used by the buttons in other panels to request a screen change
     public void showScreen(String screenName) {
         cardLayout.show(mainContainer, screenName);
+    }
+
+    // Getter for RoleManager (if needed by other panels)
+    public RoleManager getRoleManager() {
+        return roleManager;
+    }
+    
+    // Getter for TableManager (if needed by other panels)
+    public TableManager getTableManager() {
+        return tableManager;
+    }
+    
+    // Sets the selected table for ticket creation
+    public void selectTable(int tableNumber) {
+        this.selectedTableNumber = tableNumber;
+        serverTicketCreationPanel.setSelectedTable(tableNumber);
     }
 
     public static void main(String[] args) {

@@ -26,6 +26,31 @@ public class EmployeeLoginPanel extends JPanel {
         JPasswordField pinField = new JPasswordField(4); // Masked for security
         JButton loginBtn = new JButton("Login");
         
+        loginBtn.addActionListener(e -> {
+            String pin = new String(pinField.getPassword());
+            login loginValidator = new login();
+            try {
+                int pinInt = Integer.parseInt(pin);
+                if (loginValidator.validatePin(pinInt)) {
+                    // PIN is valid, transition to Role Select screen
+                    mainApp.showScreen("RoleSelect");
+                    pinField.setText(""); // Clear field for next use
+                } else {
+                    JOptionPane.showMessageDialog(pinPanel, 
+                        "Invalid PIN. Please try again.", 
+                        "Login Failed", 
+                        JOptionPane.ERROR_MESSAGE);
+                    pinField.setText("");
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(pinPanel, 
+                    "PIN must be a number.", 
+                    "Invalid Input", 
+                    JOptionPane.ERROR_MESSAGE);
+                pinField.setText("");
+            }
+        });
+        
         pinPanel.add(pinField);
         pinPanel.add(loginBtn);
         
