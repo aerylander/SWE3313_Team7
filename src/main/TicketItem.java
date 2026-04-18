@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 /**
  * Represents an item on a ticket with quantity.

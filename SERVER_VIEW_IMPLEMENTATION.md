@@ -113,8 +113,8 @@ Server Table List
 ## Usage
 
 ### To Test:
-1. Compile: `javac -d class src/Main/*.java`
-2. Run: `java -cp class Main.App`
+1. Compile: `javac -d class src/main/*.java`
+2. Run: `java -cp class main.App`
 3. Enter PIN: `1234` or `5678`
 4. Select "Server" role
 5. View the Server Table List with all 10 tables

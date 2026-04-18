@@ -1,4 +1,4 @@
-package Main;
+package table;
 
 /**
  * Represents a restaurant table with a number and current status.

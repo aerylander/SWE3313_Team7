@@ -1,8 +1,7 @@
-package Main;
+package main;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 /**
  * The Ticket Creation screen allows servers to create a new ticket for a selected table.

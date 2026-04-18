@@ -1,4 +1,7 @@
-package Main;
+package main;
+
+import login.*;
+import menu.MenuManager;
 
 import javax.swing.*;
 import java.awt.*;

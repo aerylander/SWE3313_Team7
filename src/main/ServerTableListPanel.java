@@ -1,9 +1,9 @@
-package Main;
+package main;
 
 import javax.swing.*;
 import java.awt.*;
 
-import static Main.RoleManager.ROLE_SERVER;
+import static main.RoleManager.ROLE_SERVER;
 
 /**
  * The Server Table List screen shows all available tables for a server.

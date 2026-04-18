@@ -1,4 +1,4 @@
-package Main;
+package menu;
 
 /**
  * Represents a menu item with name, price, and category.
