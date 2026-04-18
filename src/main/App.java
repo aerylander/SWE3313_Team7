@@ -1,8 +1,15 @@
 package main;
 
-import login.*;
+import login.AdminLoginPanel;
+import login.EmployeeLoginPanel;
 import menu.MenuManager;
-
+import server.ServerTableListPanel;
+import server.ServerTicketCreationPanel;
+import server.ServerActiveTicketsPanel;
+import table.TableManager;
+import ticket.TicketManager;
+import role.RoleSelectPanel;
+import role.RoleManager;
 import javax.swing.*;
 import java.awt.*;
 

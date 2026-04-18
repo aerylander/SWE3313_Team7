@@ -1,8 +1,6 @@
 package table;
 
-import main.Table;
-import main.TicketManager;
-
+import ticket.TicketManager;
 import java.util.ArrayList;
 import java.util.List;
 
