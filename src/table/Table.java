@@ -4,29 +4,30 @@ package table;
  * Represents a restaurant table with a number and current status.
  */
 public class Table {
-    private int tableNumber;
-    private boolean hasActiveTicket;
+    public enum status {CLEAN, DIRTY, OCCUPIED}
+    final private int tableNumber;
+    private status tableStatus;
     
     public Table(int tableNumber) {
         this.tableNumber = tableNumber;
-        this.hasActiveTicket = false;
+        this.tableStatus = status.CLEAN;
     }
     
     public int getTableNumber() {
         return tableNumber;
     }
-    
-    public boolean hasActiveTicket() {
-        return hasActiveTicket;
+
+    public void setTableStatus(status s) {
+        this.tableStatus = s;
     }
-    
-    public void setHasActiveTicket(boolean hasTicket) {
-        this.hasActiveTicket = hasTicket;
+
+    public status getTableStatus() {
+        return this.tableStatus;
     }
     
     @Override
     public String toString() {
-        return "Table " + tableNumber + (hasActiveTicket ? " (Active)" : "");
+        return "Table " + tableNumber + (" (Active)");
     }
 }
 
