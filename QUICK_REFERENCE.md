@@ -6,10 +6,10 @@
 |------|---------|--------|
 | `Table.java` | Restaurant table data model | ✅ Complete |
 | `TableManager.java` | Manages all tables | ✅ Complete |
-| `ServerTableListPanel.java` | Main server screen (table list) | ✅ Complete |
+| `ServerTableListPanel.java` | main server screen (table list) | ✅ Complete |
 | `ServerTicketCreationPanel.java` | Ticket creation screen | ✅ Placeholder |
 | `ServerActiveTicketsPanel.java` | Active tickets display | ✅ Placeholder |
-| `App.java` | Main application frame | ✅ Updated |
+| `App.java` | main application frame | ✅ Updated |
 | `RoleSelectPanel.java` | Role selection | ✅ Updated |
 | `EmployeeLoginPanel.java` | Employee login | ✅ Updated |
 | `RoleManager.java` | Role management | ✅ Complete |
@@ -107,10 +107,10 @@ getTableManager()             // Get table manager
 cd /Users/patrickpucylowski/Documents/GitHub/SWE3313_Team7
 
 # Compile all Java files
-javac -d class src/Main/*.java
+javac -d class src/main/*.java
 
 # Run the application
-java -cp class Main.App
+java -cp class main.App
 ```
 
 ## Testing Checklist

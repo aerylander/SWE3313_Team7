@@ -9,7 +9,7 @@ You now have a fully functional **Server Table List** screen and related Server 
 ### Core Server View Files:
 1. **Table.java** - Data model for individual restaurant tables
 2. **TableManager.java** - Manages all tables and their states
-3. **ServerTableListPanel.java** - Main Server view screen (displays table list)
+3. **ServerTableListPanel.java** - main Server view screen (displays table list)
 4. **ServerTicketCreationPanel.java** - Ticket creation screen (placeholder)
 5. **ServerActiveTicketsPanel.java** - Active tickets display (placeholder)
 
@@ -68,10 +68,10 @@ Employee Login (PIN)
 ```bash
 # Compile the project
 cd /Users/patrickpucylowski/Documents/GitHub/SWE3313_Team7
-javac -d class src/Main/*.java
+javac -d class src/main/*.java
 
 # Run the application
-java -cp class Main.App
+java -cp class main.App
 ```
 
 ### Test Scenario:
@@ -91,7 +91,7 @@ java -cp class Main.App
 ## Architecture Overview
 
 ```
-App (Main Frame)
+App (main Frame)
 ├── EmployeeLoginPanel
 ├── AdminLoginPanel
 ├── RoleSelectPanel

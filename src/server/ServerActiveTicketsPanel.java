@@ -1,8 +1,12 @@
-package Main;
+package server;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
+import main.App;
+import ticket.Ticket;
+import role.RoleManager;
+import ticket.TicketItem;
 
 /**
  * The Active Tickets screen shows all active tickets across all tables.

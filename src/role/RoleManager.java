@@ -1,4 +1,4 @@
-package Main;
+package role;
 
 import java.util.HashMap;
 import java.util.Map;

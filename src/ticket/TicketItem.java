@@ -1,4 +1,6 @@
-package Main;
+package ticket;
+
+import menu.MenuItem;
 
 /**
  * Represents an item on a ticket with quantity.

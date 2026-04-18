@@ -1,4 +1,4 @@
-package Main;
+package ticket;
 
 import java.util.ArrayList;
 import java.util.List;

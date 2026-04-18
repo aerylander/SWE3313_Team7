@@ -1,4 +1,4 @@
-package Main;
+package login;
 
 /* Logic for the PIN-based employee login. This object stores accepted PINs as an array of integers
 and uses its validatePin method to return whether a PIN is accepted.

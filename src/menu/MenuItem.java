@@ -1,4 +1,4 @@
-package Main;
+package menu;
 
 /**
  * Represents a menu item with name, price, and category.
@@ -8,10 +8,10 @@ public class MenuItem {
         APPETIZER, ENTREE, DRINK
     }
 
-    private String name;
-    private double price;
-    private Category category;
-    private boolean isHeader;
+    final private String name;
+    final private double price;
+    final private Category category;
+    final private boolean isHeader;
 
     public MenuItem(String name, double price, Category category) {
         this.name = name;

@@ -1,5 +1,6 @@
-package Main;
+package login;
 
+import main.App;
 import javax.swing.*;
 import java.awt.*;
 

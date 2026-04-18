@@ -191,10 +191,10 @@ TableManager ← Status Updates ← ← ← ← ← ← ← ← ← ← ← ← 
 
 ```bash
 # Compile
-javac -d class src/Main/*.java
+javac -d class src/main/*.java
 
 # Run
-java -cp class Main.App
+java -cp class main.App
 
 # Test Flow:
 # 1. Login: PIN 1234 or 5678

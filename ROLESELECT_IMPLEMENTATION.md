@@ -77,8 +77,8 @@ Updated to include:
 ## Usage
 
 To test the system:
-1. Compile: `javac -d class src/Main/*.java`
-2. Run: `java -cp class Main.App`
+1. Compile: `javac -d class src/main/*.java`
+2. Run: `java -cp class main.App`
 3. Login with PIN (1234 or 5678)
 4. Select a role
 5. If role is full, select an alternative role

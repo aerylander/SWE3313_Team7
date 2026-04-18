@@ -1,5 +1,15 @@
-package Main;
+package main;
 
+import login.AdminLoginPanel;
+import login.EmployeeLoginPanel;
+import menu.MenuManager;
+import server.ServerTableListPanel;
+import server.ServerTicketCreationPanel;
+import server.ServerActiveTicketsPanel;
+import table.TableManager;
+import ticket.TicketManager;
+import role.RoleSelectPanel;
+import role.RoleManager;
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,7 +21,6 @@ public class App extends JFrame {
     private TableManager tableManager;
     private ServerTableListPanel serverTableListPanel;
     private ServerTicketCreationPanel serverTicketCreationPanel;
-    private int selectedTableNumber;
     private TicketManager ticketManager;
     private MenuManager menuManager;
 
@@ -31,7 +40,6 @@ public class App extends JFrame {
 
         // Initialize the TableManager with the restaurant's tables
         tableManager = new TableManager(30, ticketManager); // 10 tables in the restaurant
-        selectedTableNumber = -1;
 
         cardLayout = new CardLayout();
         mainContainer = new JPanel(cardLayout);
@@ -80,13 +88,12 @@ public class App extends JFrame {
     
     // Sets the selected table for ticket creation
     public void selectTable(int tableNumber) {
-        this.selectedTableNumber = tableNumber;
         serverTicketCreationPanel.setSelectedTable(tableNumber);
     }
 
     public static void main(String[] args) {
         // Run the GUI on the Event Dispatch Thread for thread safety
-        SwingUtilities.invokeLater(() -> new App());
+        SwingUtilities.invokeLater(App::new);
     }
     public void refreshServerTableList(){
         //This method has no content. It should call TableManager and refresh the statuses for the Server Table List.

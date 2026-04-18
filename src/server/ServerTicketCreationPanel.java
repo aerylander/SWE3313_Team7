@@ -1,8 +1,13 @@
-package Main;
+package server;
 
+import main.App;
+import ticket.TicketManager;
+import ticket.Ticket;
+import ticket.TicketItem;
+import menu.MenuManager;
+import menu.MenuItem;
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 /**
  * The Ticket Creation screen allows servers to create a new ticket for a selected table.

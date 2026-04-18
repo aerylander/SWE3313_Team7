@@ -1,5 +1,6 @@
-package Main;
+package ticket;
 
+import menu.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 

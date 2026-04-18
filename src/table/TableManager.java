@@ -1,7 +1,10 @@
-package Main;
+package table;
 
+import ticket.TicketManager;
 import java.util.ArrayList;
 import java.util.List;
+
+import static table.Table.status.OCCUPIED;
 
 /**
  * Manages the restaurant's tables and their statuses.
@@ -23,9 +26,9 @@ public class TableManager {
      */
     public List<Table> getAllTables() {
         // Update table statuses based on active tickets
-        for (Table table : tables) {
-            table.setHasActiveTicket(ticketManager.tableHasActiveTickets(table.getTableNumber()));
-        }
+        /*for (Table table : tables) {
+            table.setTableStatus(ticketManager.tableHasActiveTickets(table.getTableNumber()));
+        }*/
         return new ArrayList<>(tables);
     }
     
@@ -36,7 +39,7 @@ public class TableManager {
         for (Table table : tables) {
             if (table.getTableNumber() == tableNumber) {
                 // Update status before returning
-                table.setHasActiveTicket(ticketManager.tableHasActiveTickets(tableNumber));
+                // table.setTableStatus(ticketManager.tableHasActiveTickets(tableNumber));
                 return table;
             }
         }
@@ -49,7 +52,7 @@ public class TableManager {
     public void setTableActiveTicket(int tableNumber, boolean hasTicket) {
         Table table = getTable(tableNumber);
         if (table != null) {
-            table.setHasActiveTicket(hasTicket);
+            table.setTableStatus(OCCUPIED);
         }
     }
     
