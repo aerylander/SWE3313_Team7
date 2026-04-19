@@ -7,7 +7,7 @@ import java.util.List;
  * Manages the restaurant menu items organized by category.
  */
 public class MenuManager {
-    private List<MenuItem> menuItems;
+    private final List<MenuItem> menuItems;
 
     public MenuManager() {
         menuItems = new ArrayList<>();
@@ -25,11 +25,6 @@ public class MenuManager {
         menuItems.add(new MenuItem("Bottle Water", 1.00, MenuItem.Category.DRINK));
         menuItems.add(new MenuItem("Fountain Drinks", 3.00, MenuItem.Category.DRINK));
     }
-
-    public List<MenuItem> getAllItems() {
-        return new ArrayList<>(menuItems);
-    }
-
     public List<MenuItem> getItemsByCategory(MenuItem.Category category) {
         List<MenuItem> categoryItems = new ArrayList<>();
         for (MenuItem item : menuItems) {
@@ -38,15 +33,6 @@ public class MenuManager {
             }
         }
         return categoryItems;
-    }
-
-    public MenuItem getItemByName(String name) {
-        for (MenuItem item : menuItems) {
-            if (item.name().equals(name)) {
-                return item;
-            }
-        }
-        return null;
     }
 }
 

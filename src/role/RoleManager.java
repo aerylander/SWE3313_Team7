@@ -96,13 +96,5 @@ public class RoleManager {
         }
         return -1; // No limit for Server
     }
-    
-    public void setMaxHostUsers(int max) {
-        this.maxHostUsers = max;
-    }
-
-    public void setMaxKitchenUsers(int max) {
-        this.maxKitchenUsers = max;
-    }
 }
 
