@@ -3,7 +3,6 @@ package server;
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
-import main.App;
 import ticket.Ticket;
 import role.RoleManager;
 import ticket.TicketItem;

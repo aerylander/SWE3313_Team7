@@ -1,5 +1,3 @@
-package main;
-
 import login.AdminLoginPanel;
 import login.EmployeeLoginPanel;
 import menu.MenuManager;

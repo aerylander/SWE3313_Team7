@@ -2,7 +2,6 @@ package server;
 
 import javax.swing.*;
 import java.awt.*;
-import main.App;
 import table.TableManager;
 import table.Table;
 import static role.RoleManager.ROLE_SERVER;
