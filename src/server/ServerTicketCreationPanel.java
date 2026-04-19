@@ -166,8 +166,8 @@ public class ServerTicketCreationPanel extends JPanel {
             menuListModel.addElement(item);
         }
         
-        // Add entrees
-        menuListModel.addElement(new MenuItem("=== ENTREES ==="));
+        // Add entrées
+        menuListModel.addElement(new MenuItem("=== ENTRÉES ==="));
         for (MenuItem item : menuManager.getItemsByCategory(MenuItem.Category.ENTREE)) {
             menuListModel.addElement(item);
         }
@@ -190,7 +190,7 @@ public class ServerTicketCreationPanel extends JPanel {
     
     private void addItemToTicket() {
         MenuItem selectedItem = menuList.getSelectedValue();
-        if (selectedItem != null && selectedItem.getCategory() != null) {
+        if (selectedItem != null && selectedItem.category() != null) {
             currentTicket.addItem(selectedItem);
             updateDisplay();
         }

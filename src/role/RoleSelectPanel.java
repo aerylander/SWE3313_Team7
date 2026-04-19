@@ -1,8 +1,8 @@
 package role;
 
-import main.App;
 import javax.swing.*;
 import java.awt.*;
+import main.App;
 
 /**
  * The Role Select Panel is shown when an Employee user with no assigned role logs in.

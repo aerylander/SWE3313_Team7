@@ -37,12 +37,12 @@ public class TicketItem {
     }
 
     public double getSubtotal() {
-        return menuItem.getPrice() * quantity;
+        return menuItem.price() * quantity;
     }
 
     @Override
     public String toString() {
-        return String.format("%s x%d - $%.2f", menuItem.getName(), quantity, getSubtotal());
+        return String.format("%s x%d - $%.2f", menuItem.name(), quantity, getSubtotal());
     }
 }
 

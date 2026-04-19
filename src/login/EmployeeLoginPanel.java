@@ -1,8 +1,8 @@
 package login;
 
-import main.App;
 import javax.swing.*;
 import java.awt.*;
+import main.App;
 
 public class EmployeeLoginPanel extends JPanel {
     public EmployeeLoginPanel(App mainApp) {

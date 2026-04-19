@@ -33,7 +33,7 @@ public class MenuManager {
     public List<MenuItem> getItemsByCategory(MenuItem.Category category) {
         List<MenuItem> categoryItems = new ArrayList<>();
         for (MenuItem item : menuItems) {
-            if (item.getCategory() == category) {
+            if (item.category() == category) {
                 categoryItems.add(item);
             }
         }
@@ -42,7 +42,7 @@ public class MenuManager {
 
     public MenuItem getItemByName(String name) {
         for (MenuItem item : menuItems) {
-            if (item.getName().equals(name)) {
+            if (item.name().equals(name)) {
                 return item;
             }
         }

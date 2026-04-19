@@ -15,14 +15,11 @@ import java.awt.*;
 
 public class App extends JFrame {
     // CardLayout is the "engine" that swaps the views
-    private CardLayout cardLayout;
-    private JPanel mainContainer;
-    private RoleManager roleManager;
-    private TableManager tableManager;
-    private ServerTableListPanel serverTableListPanel;
-    private ServerTicketCreationPanel serverTicketCreationPanel;
-    private TicketManager ticketManager;
-    private MenuManager menuManager;
+    private final CardLayout cardLayout;
+    private final JPanel mainContainer;
+    private final RoleManager roleManager;
+    private final ServerTicketCreationPanel serverTicketCreationPanel;
+    private final TicketManager ticketManager;
 
     public App() {
         // Basic window setup
@@ -36,10 +33,10 @@ public class App extends JFrame {
         roleManager = new RoleManager(2, 3); // 2 max hosts, 3 max kitchen staff
 
         ticketManager = new TicketManager();
-        menuManager = new MenuManager();
+        MenuManager menuManager = new MenuManager();
 
         // Initialize the TableManager with the restaurant's tables
-        tableManager = new TableManager(30, ticketManager); // 10 tables in the restaurant
+        TableManager tableManager = new TableManager(30, ticketManager); // 10 tables in the restaurant
 
         cardLayout = new CardLayout();
         mainContainer = new JPanel(cardLayout);
@@ -51,7 +48,7 @@ public class App extends JFrame {
         mainContainer.add(new RoleSelectPanel(this, roleManager), "RoleSelect");
         
         // Server view screens
-        serverTableListPanel = new ServerTableListPanel(this, tableManager);
+        ServerTableListPanel serverTableListPanel = new ServerTableListPanel(this, tableManager);
         serverTicketCreationPanel = new ServerTicketCreationPanel(this, menuManager, ticketManager);
         mainContainer.add(serverTableListPanel, "ServerTableList");
         mainContainer.add(serverTicketCreationPanel, "ServerTicketCreation");
@@ -80,18 +77,13 @@ public class App extends JFrame {
     public RoleManager getRoleManager() {
         return roleManager;
     }
-    
-    // Getter for TableManager (if needed by other panels)
-    public TableManager getTableManager() {
-        return tableManager;
-    }
-    
+
     // Sets the selected table for ticket creation
     public void selectTable(int tableNumber) {
         serverTicketCreationPanel.setSelectedTable(tableNumber);
     }
 
-    public static void main(String[] args) {
+    static void main(String[]args) {
         // Run the GUI on the Event Dispatch Thread for thread safety
         SwingUtilities.invokeLater(App::new);
     }
