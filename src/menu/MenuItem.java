@@ -2,7 +2,7 @@ package menu;
 // Represents a menu item with name, price, and category.
 public record MenuItem(String name, double price, Category category) {
     public enum Category {
-        APPETIZER, ENTREE, DRINK
+        APPETIZER, SALAD, ENTREE, DRINK, DESSERT
     }
 
     // Constructor for header items

@@ -4,7 +4,7 @@ import ticket.TicketManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import static table.Table.status.OCCUPIED;
+import static table.Table.status;
 
 /**
  * Manages the restaurant's tables and their statuses.
@@ -49,10 +49,10 @@ public class TableManager {
     /**
      * Sets the active ticket status for a table.
      */
-    public void setTableActiveTicket(int tableNumber, boolean hasTicket) {
+    public void setTableStatus(int tableNumber, status s) {
         Table table = getTable(tableNumber);
         if (table != null) {
-            table.setTableStatus(OCCUPIED);
+            table.setTableStatus(s);
         }
     }
     

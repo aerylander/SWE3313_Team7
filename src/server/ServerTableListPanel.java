@@ -6,6 +6,7 @@ import table.TableManager;
 import table.Table;
 import main.App;
 import static role.RoleManager.ROLE_SERVER;
+import static table.Table.status;
 
 /**
  * The Server Table List screen shows all available tables for a server.
