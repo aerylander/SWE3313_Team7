@@ -165,17 +165,28 @@ public class ServerTicketCreationPanel extends JPanel {
         for (MenuItem item : menuManager.getItemsByCategory(MenuItem.Category.APPETIZER)) {
             menuListModel.addElement(item);
         }
-        
+
+        menuListModel.addElement((new MenuItem("=== SALADS ===")));{
+            for (MenuItem item : menuManager.getItemsByCategory(MenuItem.Category.SALAD)){
+                menuListModel.addElement(item);
+            }
+        }
         // Add entrées
         menuListModel.addElement(new MenuItem("=== ENTRÉES ==="));
         for (MenuItem item : menuManager.getItemsByCategory(MenuItem.Category.ENTREE)) {
             menuListModel.addElement(item);
         }
-        
+
         // Add drinks
-        menuListModel.addElement(new MenuItem("=== DRINKS ==="));
+        menuListModel.addElement(new MenuItem("=== BEVERAGES ==="));
         for (MenuItem item : menuManager.getItemsByCategory(MenuItem.Category.DRINK)) {
             menuListModel.addElement(item);
+        }
+
+        menuListModel.addElement(new MenuItem("=== DESSERTS ==="));{
+            for (MenuItem item : menuManager.getItemsByCategory(MenuItem.Category.DESSERT)){
+                menuListModel.addElement(item);
+            }
         }
     }
     
